@@ -210,3 +210,8 @@ class OpenDartReader():
 
     def list_presenter(self, presenter, start=None, end=None, report_type='지분공시', final=True):
         return dart_utils.list_presenter(presenter, start, end, report_type, final)
+
+    def finindex(self, corp, bsns_year, reprt_code='11011', cl_code='M21'):
+        corp_code = self.find_corp_code(corp)
+        idx_cl_code = cl_code+'0000'
+        return dart_finstate.finindex(self.api_key, corp_code, bsns_year, reprt_code ,idx_cl_code)
